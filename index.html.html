@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenHome Nursery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    🌱 Bikin rumah lebih asri, satu tanaman dalam satu waktu.
+  </div>
+
+  <header class="navbar">
+    <a class="brand" href="#">
+      🌿 GreenHome <span> NURSERY</span>
+    </a>
+
+    <nav>
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#pesan">Cara Pesan</a>
+    </nav>
+
+    <button class="cart-button" onclick="toggleCart(true)">
+      🛒 Keranjang (<span id="cart-count">0</span>)
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">TUMBUH LEBIH HIJAU DI RUMAH</p>
+        <h1>Temukan hijau untuk <em>ruangmu.</em></h1>
+        <p>
+          Tanaman hias, bibit pilihan, dan perlengkapan berkebun
+          untuk membuat sudut rumah terasa lebih hidup.
+        </p>
+        <a class="button" href="#produk">Belanja Tanaman ↗</a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1416879598555-7d8a5e1c6f58?auto=format&fit=crop&w=1000&q=85"
+          alt="Tanaman hijau GreenHome Nursery">
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div>🪴 <strong>Pilihan Tanaman</strong><br>Tanaman hias dan bibit</div>
+      <div>🌿 <strong>Perlengkapan Lengkap</strong><br>Pot, media tanam, pupuk</div>
+      <div>🏡 <strong>Pengantaran</strong><br>Untuk area sekitar</div>
+    </section>
+
+    <section id="produk" class="section">
+      <p class="eyebrow">KOLEKSI PILIHAN</p>
+      <h2>Temukan tanamanmu</h2>
+      <p class="section-desc">
+        Pilih tanaman dan perlengkapan favoritmu.
+      </p>
+
+      <div class="filters">
+        <button class="filter active" onclick="filterProducts('Semua', this)">Semua</button>
+        <button class="filter" onclick="filterProducts('Tanaman hias', this)">Tanaman hias</button>
+        <button class="filter" onclick="filterProducts('Bibit', this)">Bibit</button>
+        <button class="filter" onclick="filterProducts('Pot', this)">Pot</button>
+        <button class="filter" onclick="filterProducts('Perawatan', this)">Media & pupuk</button>
+      </div>
+
+      <div id="products" class="products"></div>
+    </section>
+
+    <section id="tentang" class="about">
+      <div>
+        <p class="eyebrow">TENTANG KAMI</p>
+        <h2>Ruang kecil, dampak hijau yang besar.</h2>
+        <p>
+          GreenHome Nursery merupakan usaha pusat tanaman skala
+          rumahan yang memanfaatkan lahan kosong untuk membudidayakan
+          dan menjual tanaman serta perlengkapan berkebun.
+        </p>
+        <p>
+          Kami ingin membantu warga menghadirkan suasana rumah
+          yang lebih asri, dimulai dari satu tanaman.
+        </p>
+      </div>
+
+      <div class="about-cards">
+        <div>🌱 <strong>Memanfaatkan lahan</strong><p>Lahan kosong menjadi lebih produktif.</p></div>
+        <div>🪴 <strong>Produk beragam</strong><p>Tanaman, bibit, pot, dan pupuk.</p></div>
+        <div>🏡 <strong>Dekat denganmu</strong><p>Melayani kebutuhan warga sekitar.</p></div>
+        <div>💚 <strong>Tumbuh bertahap</strong><p>Dimulai dari skala rumahan.</p></div>
+      </div>
+    </section>
+
+    <section id="pesan" class="order-section">
+      <div>
+        <p class="eyebrow">PESAN DENGAN MUDAH</p>
+        <h2>Siap menghijaukan rumahmu?</h2>
+        <p>Isi data di samping untuk mengirim pesanan melalui WhatsApp.</p>
+      </div>
+
+      <form id="checkout-form">
+        <input id="customer-name" placeholder="Nama lengkap" required>
+        <input id="customer-phone" placeholder="Nomor WhatsApp kamu" required>
+        <textarea id="customer-address" placeholder="Alamat pengantaran" required></textarea>
+
+        <select id="delivery">
+          <option value="Antar ke alamat">Antar ke alamat</option>
+          <option value="Ambil sendiri">Ambil sendiri</option>
+        </select>
+
+        <button type="submit" class="button">Pesan via WhatsApp ↗</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <strong>🌿 GreenHome Nursery</strong>
+    <p>Tanam hijau, tumbuhkan bahagia.</p>
+    <small>© <span id="year"></span> GreenHome Nursery</small>
+  </footer>
+
+  <div id="cart-panel" class="cart-overlay" onclick="if(event.target===this)toggleCart(false)">
+    <div class="cart">
+      <div class="cart-header">
+        <h2>Keranjangmu</h2>
+        <button onclick="toggleCart(false)" class="close">×</button>
+      </div>
+      <div id="cart-items"></div>
+      <h3 class="total">Total: <span id="cart-total">Rp0</span></h3>
+      <button class="button" onclick="goCheckout()">Lanjutkan Pesanan</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
